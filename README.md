@@ -143,6 +143,6 @@
 
 ![can't display an image](images/flag.png)
 
-- And here you got the flag , and no need for fetching any tables.
+- And here you got the flag .
 
 - Congratulations , Assem_Ayman .
