@@ -1,0 +1,55 @@
+10.129.78.134
+
+nmap report:
+
+PORT   STATE SERVICE VERSION
+80/tcp open  http    Apache httpd 2.4.52 ((Win64) OpenSSL/1.1.1m PHP/8.1.1)
+|_http-server-header: Apache/2.4.52 (Win64) OpenSSL/1.1.1m PHP/8.1.1
+|_http-title: Site doesn't have a title (text/html; charset=UTF-8).
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+
+-----------------------
+hint: when i made an nmap report i found that open port which is 80/tcp and this mean that we gonna deal with website.
+------------------------------------------
+http://unika.htb/
+
+echo "10.129.118.94 unika.htb" | sudo tee -a /etc/hosts
+
+we should add this fucken script to /etc/hosts
+
+-----------------------------------
+this is tha zatona :
+
+File Inclusion Vulnerability
+Dynamic websites include HTML pages on the fly using information from the HTTP request to include GET
+and POST parameters, cookies, and other variables. It is common for a page to "include" another page
+based on some of these parameters.
+ LFI or Local File Inclusion occurs when an attacker is able to get a website to include a file that was not
+intended to be an option for this application. A common example is when an application uses the path to a
+file as input. If the application treats this input as trusted, and the required sanitary checks are not
+performed on this input, then the attacker can exploit it by using the ../ string in the inputted file name
+and eventually view sensitive files in the local file system. In some limited cases, an LFI can lead to code
+execution as well.
+ RFI or Remote File Inclusion is similar to LFI but in this case it is possible for an attacker to load a remote
+file on the host using protocols like HTTP, FTP etc.
+We test the page parameter to see if we can include files on the target system in the server response. We
+will test with some commonly known files that will have the same name across networks, Windows
+domains, and systems which can be found here. One of the most common files that a penetration tester
+might attempt to access on a Windows machine to verify LFI is the hosts file,
+WINDOWS\System32\drivers\etc\hosts (this file aids in the local translation of host names to IP
+addresses). The ../ string is used to traverse back a directory, one at a time. Thus multiple ../ strings are
+included in the URL so that the file handler on the server traverses back to the base directory i.e. C:\ .
+
+
+---------------------
+
+
+u_name   :  Administrator
+password :  badminton
+
+then need to get in so , i will think about 'evilwinrm"
+
+https://www.ionos.com/digitalguide/server/know-how/ntlm-nt-lan-manager/
+
+ea81b7afddd03efaa0945333ed147fac
